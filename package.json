@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "nodemon" : "nodemon ./bin/www",
-    "build" : "cd client && npm install && npm run build"
+    "start": "node ./bin/www",
+    "nodemon": "nodemon ./bin/www",
+    "build": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
