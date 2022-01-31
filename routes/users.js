@@ -1,7 +1,9 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../bin/db");
+var cors = require("cors");
 
+router.use(cors());
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   // previously...
