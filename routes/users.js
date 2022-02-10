@@ -1,9 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../bin/db");
-var cors = require("cors");
+var auth = require("../bin/auth");
 
-router.use(cors());
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   // previously...
@@ -23,6 +22,20 @@ router.get("/", function (req, res, next) {
         res.json(result);
       }
     });
+});
+
+router.post("/", function (req, res, next) {
+  const token = req.body.idtoken;
+
+  console.log("got token? ");
+  console.log(token);
+
+  auth
+    .verify(token)
+    .then(() => {
+      res.status(200).send();
+    })
+    .catch(console.error);
 });
 
 module.exports = router;

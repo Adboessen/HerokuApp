@@ -16,6 +16,16 @@ function App() {
   const responseGoogle = (response) => {
     console.log(response.tokenId);
     console.log(response.profileObj);
+
+    const id_token = response.tokenId;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:3001/users");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onload = function () {
+      console.log("Signed in as: " + xhr.responseText);
+    };
+    xhr.send("idtoken=" + id_token);
   };
 
   return (
