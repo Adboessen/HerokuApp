@@ -34,18 +34,19 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         <p>{!data ? "Loading..." : data}</p>
+
+        <nav>
+          <div>Test</div>
+          <GoogleLogin
+            clientId="1085897457627-09537qfb2nl4u3bosi9qoe5vlbagosk1.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+            isSignedIn={true}
+          />
+        </nav>
       </header>
-      <nav>
-        <div>Test</div>
-        <GoogleLogin
-          clientId="1085897457627-09537qfb2nl4u3bosi9qoe5vlbagosk1.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
-        />
-      </nav>
     </div>
   );
 }
